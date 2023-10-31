@@ -19,3 +19,13 @@ function displayTime() {
   const formattedTime = now.toLocaleString("en-US", options);
   timeDisplayEl.textContent = formattedTime;
 }
+
+function readProjectsFromStorage() {
+  try {
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    return projects;
+  } catch (error) {
+    console.error("Error reading projects from storage:", error);
+    return [];
+  }
+}
